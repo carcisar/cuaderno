@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2 class="mb-4">{{ isEditMode ? 'Editar Tarea' : 'Crear Nueva Tarea' }}</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input id="title" formControlName="title" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="status">Estado</label>
+      <select id="status" formControlName="status" class="form-control">
+        <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="dueDate">Fecha de Vencimiento</label>
+      <input id="dueDate" formControlName="dueDate" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="priority">Prioridad</label>
+      <select id="priority" formControlName="priority" class="form-control">
+        <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">{{ isEditMode ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" class="btn btn-secondary ml-2" (click)="cancel()">Cancelar</button>
+  </form>
+  <div class="flex items-center">
+    <app-button label="Crear Tarea" variant="primary" (click)="onSubmit()"></app-button>
+    <app-button label="Cancelar" variant="secondary" (click)="cancel()"></app-button>
+  </div>
+</div>

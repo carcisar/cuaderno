@@ -1,0 +1,12 @@
+<button
+  [type]="type"
+  [disabled]="disabled"
+  [ngClass]="{
+    'btn-primary': variant === 'primary',
+    'btn-secondary': variant === 'secondary'
+  }"
+  [class]="additionalClasses"
+  class="focus:outline-none focus:ring-2 focus:ring-offset-2 rounded"
+>
+  {{ label }}
+</button>
