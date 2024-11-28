@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HomeComponent } from './components/home/home.component';
+import { BoardFormComponent } from './components/board-form/board-form.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +24,18 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     TaskFormComponent,
     NavbarComponent,
     ButtonComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent,
+    BoardFormComponent,
+    CalendarComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    DragDropModule
   ],
   providers: [
     provideHttpClient(

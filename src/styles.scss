@@ -36,3 +36,15 @@
 .overlay-active {
   @apply opacity-100 pointer-events-auto;
 }
+
+
+/* Asegúrate de que todos los elementos tengan transición por defecto */
+.cdk-drag-preview,
+.cdk-drag-placeholder {
+  transition: transform 0.2s ease-out;
+}
+
+/* Elimina animaciones conflictivas */
+body {
+  overflow: hidden; /* Previene scroll indeseado durante el drag-and-drop */
+}

@@ -1,0 +1,38 @@
+/* Estilos del Kanban */
+
+/* Espaciado entre columnas */
+.grid {
+  @apply gap-4;
+}
+
+/* Títulos de columnas */
+h2 {
+  @apply text-lg font-semibold mb-2 text-gray-700;
+}
+
+/* Tarjetas de tareas */
+.bg-white {
+  @apply p-4 rounded shadow hover:shadow-lg transition;
+}
+
+/* Etiquetas de prioridades */
+.bg-green-200 {
+  background-color: #d1fae5;
+}
+.text-green-800 {
+  color: #065f46;
+}
+
+.bg-yellow-200 {
+  background-color: #fef3c7;
+}
+.text-yellow-800 {
+  color: #92400e;
+}
+
+.bg-red-200 {
+  background-color: #fee2e2;
+}
+.text-red-800 {
+  color: #991b1b;
+}

@@ -1,0 +1,5 @@
+/* sidebar.component.css */
+
+.sidebar {
+  @apply fixed top-0 left-0 h-full w-64 bg-primary text-white transform transition-transform duration-300 z-50;
+}
