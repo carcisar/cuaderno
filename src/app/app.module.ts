@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +15,9 @@ import { BoardFormComponent } from './components/board-form/board-form.component
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HomeComponent,
     BoardFormComponent,
     CalendarComponent,
-    NotificationComponent
+    NotificationComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   providers: [
     provideHttpClient(
       withInterceptorsFromDi()
-    )
+    ),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
